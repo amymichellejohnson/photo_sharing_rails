@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  belongs_to :user
 
   def create
     @user = User.authenticate(params[:email], params[:password])

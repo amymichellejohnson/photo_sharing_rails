@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
-
+  has_many :photos
   def index
-  @user = User.all
+    @users = User.all
   end
 
   def new
     @user = User.new
   end
+
+
 
   def create
     @user = User.new(user_params)
@@ -23,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :avatar)
   end
 end

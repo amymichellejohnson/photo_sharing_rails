@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  Welcome, <%= current_user.email %>!
+  Welcome, <%= link_to current_user.email, new_photo_path %>!<%= image_tag current_user.avatar.url%> <%= image_tag current_user.avatar.url(:medium) %> <%= image_tag current_user.avatar.url(:thumb) %>
 <% end %>
 
 <p><%= link_to "Log Out", session_path(:current_user), :data => {:confirm =>"Are you sure?", :method =>"delete"} %></p>
@@ -7,7 +7,7 @@
 <p><%= link_to "Sign Up", new_user_path %> | <%= link_to "Log In", new_session_path %></p>
 
 <h1>All users</h1>
-<% @user.each do |user| %>
+<% @users.each do |user| %>
   <ul>
     <li> <%= user.email %> </li>
   </ul>
