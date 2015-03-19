@@ -1,4 +1,4 @@
 class Tagging < ActiveRecord::Base
-  has_many :users
-  has_many :photos
+  belongs_to :user
+  belongs_to :photo
 end

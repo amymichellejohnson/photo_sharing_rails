@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :photos
-  has_many :photos, through: :taggings
+  has_many :taggings
+  has_many :tagged_photos, through: :taggings, class_name: "Photo", source: :photo
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

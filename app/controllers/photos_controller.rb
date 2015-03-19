@@ -2,6 +2,7 @@ class PhotosController <ApplicationController
 
   def new
     @photo = current_user.photos.new
+    @users = User.all
   end
 
   def create
