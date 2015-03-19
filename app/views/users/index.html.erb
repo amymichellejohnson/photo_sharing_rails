@@ -1,6 +1,5 @@
 <% if logged_in? %>
-***Lets change this content to be on the individual users page :)
-  Welcome, <%= link_to current_user.email, new_user_photo_path(**Change this) %>!<%= image_tag current_user.avatar.url%> <%= image_tag current_user.avatar.url(:medium) %> <%= image_tag current_user.avatar.url(:thumb) %>
+  Welcome, <%= link_to current_user.email, user_photos_path(current_user) %>!<%= image_tag current_user.avatar.url%> <%= image_tag current_user.avatar.url(:medium) %> <%= image_tag current_user.avatar.url(:thumb) %>
 <% end %>
 
 <p><%= link_to "Log Out", session_path(:current_user), :data => {:confirm =>"Are you sure?", :method =>"delete"} %></p>

@@ -1,0 +1,7 @@
+<h1>Hello there <%= current_user.email %></h1>
+
+<% current_user.photos.each do |photo_object| %>
+<%= image_tag photo_object.photo %>
+<% end %>
+
+<%= link_to "Add Photo", new_user_photo_path %>

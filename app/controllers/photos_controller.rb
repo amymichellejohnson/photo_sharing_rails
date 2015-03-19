@@ -5,11 +5,11 @@ class PhotosController <ApplicationController
   end
 
   def create
-    @user = User.find(params[:current_user_id])
-    @photo = @user.photos.new(photo_params)
+    @current_user = current_user
+    @photo = @current_user.photos.new(photo_params)
     if @photo.save
       flash[:notice] = "Photo successfully uploaded"
-      redirect_to user_photo(@photo)
+      redirect_to user_photos_path
     else
       render :new
     end
