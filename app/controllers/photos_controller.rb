@@ -1,12 +1,11 @@
 class PhotosController <ApplicationController
 
   def new
-    @photo = Photo.new
+    @photo = current_user.photos.new
   end
 
   def create
-    @current_user = current_user
-    @photo = @current_user.photos.new(photo_params)
+    @photo = current_user.photos.new(photo_params)
     if @photo.save
       flash[:notice] = "Photo successfully uploaded"
       redirect_to user_photos_path
@@ -16,6 +15,6 @@ class PhotosController <ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:photo)
+    params.require(:photo).permit(:photo, :tagged)
   end
 end
