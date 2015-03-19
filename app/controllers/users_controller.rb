@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  has_many :photos
   def index
     @users = User.all
   end
